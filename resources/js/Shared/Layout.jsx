@@ -9,11 +9,21 @@ export default function Layout({ children }) {
 
   return (
     <div>
-      <header style={{ padding: 12, borderBottom: '1px solid var(--border-color)', background: 'var(--header-bg)' }}>
-        <div style={{ maxWidth: 960, margin: '0 auto', display: 'flex', justifyContent: 'space-between' }}>
-          <div>
-            <Link href="/">Home</Link>
+      <header className="site-header">
+        <div className="container">
+          <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+            <Link href="/">
+              <img src="/images/logo.svg" alt="Salon" className="logo" />
+            </Link>
+            <nav style={{ display: 'flex', gap: 12 }}>
+              <Link href="/">Home</Link>
+              <Link href="/services">Services</Link>
+              <Link href="/booking">Booking</Link>
+              <Link href="/about">About</Link>
+              <Link href="/contact">Contact</Link>
+            </nav>
           </div>
+
           <div>
             {user ? (
               <>
@@ -34,7 +44,7 @@ export default function Layout({ children }) {
         </div>
       </header>
 
-      <main style={{ maxWidth: 960, margin: '1.5rem auto', padding: '0 12px' }}>
+      <main>
         <Flash />
         {children}
       </main>

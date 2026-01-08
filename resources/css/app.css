@@ -11,15 +11,15 @@
 }
 
 :root {
-    /* Blue + Violet theme */
-    --color-bg: #f5f9ff; /* very light blue */
-    --color-primary: #60a5fa; /* blue-400 */
-    --color-primary-2: #3b82f6; /* blue-500 */
-    --color-accent: #7c3aed; /* violet-600 */
-    --color-accent-2: #8b5cf6; /* violet-500 */
+    /* Pink theme */
+    --color-bg: #fff5f8; /* very light pink */
+    --color-primary: #f472b6; /* pink-400 */
+    --color-primary-2: #ec4899; /* pink-500 */
+    --color-accent: #fb7185; /* rose-400 */
+    --color-accent-2: #f43f5e; /* rose-500 */
     --text-color: #0f172a;
     --muted-text: #6b7280;
-    --border-color: #e6eef9;
+    --border-color: #fde6ef;
     --header-bg: #ffffff;
     --button-bg: var(--color-accent);
     --button-text: #ffffff;
@@ -71,10 +71,168 @@ header {
     border-bottom: 1px solid var(--border-color);
 }
 
+/* Fixed header layout for all pages */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    padding: 0 12px;
+}
+
+.site-header .container {
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 40px;
+}
+
+/* ensure main content sits below fixed header */
 main {
     max-width: 960px;
     margin: 1.5rem auto;
     padding: 0 12px;
+    padding-top: 84px; /* account for fixed header */
+}
+
+/* Hero section on Home page */
+.hero {
+    height: 420px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.hero .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(244,63,94,0.25), rgba(244,63,94,0.5));
+}
+
+.hero .content {
+    position: relative;
+    z-index: 2;
+    padding: 32px;
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    line-height: 1.05;
+    margin: 0 0 8px 0;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.hero p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.95);
+}
+
+.cta-group {
+    margin-top: 14px;
+    display: flex;
+    gap: 12px;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-2));
+    color: white;
+    border: none;
+    padding: 0.65rem 1.1rem;
+    border-radius: 10px;
+    font-weight: 700;
+    box-shadow: 0 8px 24px rgba(236,72,153,0.18);
+}
+
+.btn-secondary {
+    background: rgba(255,255,255,0.12);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 0.55rem 0.95rem;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.hero .overlay {
+    background: linear-gradient(180deg, rgba(236,72,153,0.18), rgba(244,63,94,0.28));
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.service-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(15,23,42,0.08);
+    transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.service-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.service-card .body {
+    padding: 12px;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 48px rgba(15,23,42,0.14);
+}
+
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 14px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(15,23,42,0.05);
+}
+
+@media (max-width: 640px) {
+    .hero h1 { font-size: 28px; }
+    .hero { height: 320px; }
+}
+
+.sub-list li {
+    color: var(--text-color);
+}
+
+/* Make the outline link look like a subtle button */
+.btn-outline {
+    display: inline-block;
+    padding: 0.35rem 0.7rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 /* Make form fields visible by default */
@@ -100,7 +258,7 @@ textarea:focus,
 select:focus {
     outline: none;
     border-color: var(--color-primary-2);
-    box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+    box-shadow: 0 0 0 3px rgba(236,72,153,0.12);
 }
 
 .form-row {
