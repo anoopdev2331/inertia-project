@@ -10,10 +10,10 @@ export default function Flash() {
   return (
     <div style={{ marginBottom: 16 }}>
       {flash.success && (
-        <div style={{ background: '#d4edda', color: '#155724', padding: 10, borderRadius: 4 }}>{flash.success}</div>
+        <div style={{ background: 'var(--success-bg)', color: 'var(--success-text)', padding: 10, borderRadius: 4 }}>{flash.success}</div>
       )}
       {flash.error && (
-        <div style={{ background: '#f8d7da', color: '#721c24', padding: 10, borderRadius: 4 }}>{flash.error}</div>
+        <div style={{ background: 'var(--error-bg)', color: 'var(--error-text)', padding: 10, borderRadius: 4 }}>{flash.error}</div>
       )}
     </div>
   )

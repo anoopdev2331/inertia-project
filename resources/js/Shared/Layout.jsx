@@ -9,7 +9,7 @@ export default function Layout({ children }) {
 
   return (
     <div>
-      <header style={{ padding: 12, borderBottom: '1px solid #eee' }}>
+      <header style={{ padding: 12, borderBottom: '1px solid var(--border-color)', background: 'var(--header-bg)' }}>
         <div style={{ maxWidth: 960, margin: '0 auto', display: 'flex', justifyContent: 'space-between' }}>
           <div>
             <Link href="/">Home</Link>
